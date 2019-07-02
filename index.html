@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,12 +52,12 @@
                     url: queryURL,
                     method: "GET"
                 }).then(function(response) {
-
+                    console.log(response)
                     // Creating a div to hold the topic
                     var topicDiv = $("<div class='topic'>");
 
                     // Storing the rating data
-                    var rating = response.rating;
+                    var rating = response.data.rating;
                     console.log(rating)
 
                     // Creating an element to have the rating displayed
@@ -64,7 +66,7 @@
                     topicDiv.append(pOne);
 
                     // Retrieving the URL for the image
-                    var imgURL = response.Poster;
+                    var imgURL = response.data[0].images.downsized.url;
 
                     // Creating an element to hold the image
                     var image = $("<img>").attr("src", imgURL);
