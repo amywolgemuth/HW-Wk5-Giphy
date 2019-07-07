@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +38,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript">
             var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
-            var topics = ["turtles", "beaches", "suntanning", "margaritas", "shopping", "cats", "swimming", "flowers", "camping", "boating"];
+            var topics = ["turtles", "beaches", "suntanning", "margarita", "shopping", "cats", "swimming", "flowers", "camping", "boating"];
 
             // displayTopicInfo function re-renders the HTML to display the appropriate content
             function displayTopicInfo() {
@@ -52,21 +50,22 @@
                     url: queryURL,
                     method: "GET"
                 }).then(function(response) {
-                    console.log(response)
+                   console.log(response)
                     // Creating a div to hold the topic
                     var topicDiv = $("<div class='topic'>");
 
                     // Storing the rating data
-                    var rating = response.data.rating;
+                    var rating = response.data[0].rating;
                     console.log(rating)
 
                     // Creating an element to have the rating displayed
                     var pOne = $("<p>").text("Rating: " + rating);
+                    
                     // Displaying the rating
                     topicDiv.append(pOne);
 
                     // Retrieving the URL for the image
-                    var imgURL = response.data[0].images.downsized.url;
+                    var imgURL = response.data[0].images.fixed_height_still.url;
 
                     // Creating an element to hold the image
                     var image = $("<img>").attr("src", imgURL);
