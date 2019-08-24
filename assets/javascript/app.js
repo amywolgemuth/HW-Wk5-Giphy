@@ -13,8 +13,8 @@ var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
                     for (var j = 0; j < 9; j++) {
                         console.log(response)
                         // Creating a div to hold the topic
-                        var topicDiv = $("<div class='topic'>");
-                        topicDiv.addClass("col-md-4 img-responsive");
+                        var topicDiv = $("<div>");
+                        topicDiv.addClass("col-md-3 img-responsive");
                         // Storing the rating data
                         var rating = response.data[j].rating;
                         console.log(rating)
@@ -23,9 +23,13 @@ var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
                         // Displaying the rating
                         topicDiv.append(pOne);
                         // Retrieving the URL for the image
-                        var imgURL = response.data[j].images.fixed_height_still.url;
+                        var imgURL = response.data[j].images.downsized_still.url;
                         // Creating an element to hold the image
                         var image = $("<img>").attr("src", imgURL);
+                        image.addClass("img-responsive topic");
+                        image.attr("data-still", response.data[j].images.downsized_still.url);
+                        image.attr("data-animate",response.data[j].images.downsized.url);
+                        image.attr("data-state","still")
                         // Appending the image
                         topicDiv.append(image);
                         // Putting the topic above the previous topics
@@ -67,3 +71,16 @@ var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
             $(document).on("click", ".topic-btn", displayTopicInfo);
             // Calling renderButtons which handles the processing of our topics array
             renderButtons();
+
+            $(document).on("click",".topic",function(){
+                var state = $(this).attr("data-state");
+
+                if(state==="animate"){
+                    $(this).attr("src",$(this).data("still"));
+                    $(this).attr("data-state","still");
+                }
+                if(state==="still"){
+                    $(this).attr("src",$(this).data("animate"));
+                    $(this).attr("data-state","animate");
+                }
+            })
