@@ -7,40 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Topics for Giffs</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
- <style type="text/css">
-        button,
-        div,
-        form,
-        input {
-            margin: 10px;
-        }
-    </style>
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+
+</style> -->
 
 </head>
-
+         
 <body>
     <div class="container">
-        <h1>Topics Search</h1>
+        <div class="row">
+            <div class="col sm-12">
+                <h1>Topics Search</h1>
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view"></div>
+                <form id="topic-form">
+                    <label for="topic-input">Add a Topic!</label>
+                    <input type="text" id="topic-input">
+                    <br>
 
-        <!-- Rendered Buttons will get Dumped Here  -->
-        <div id="buttons-view"></div>
-
-        <form id="topic-form">
-            <label for="topic-input">Add a Topic!</label>
-            <input type="text" id="topic-input">
-            <br>
-
-            <!-- Button triggers new topic to be added -->
-            <input id="add-topic" type="submit" value="Add a Topic, Yo!">
-        </form>
-
+                    <!-- Button triggers new topic to be added -->
+                    <input id="add-topic" type="submit" value="Add a Topic, Yo!">
+                </form>
+            </div>
+        </div>
         <!--Topics will get dumped here-->
         <div id="topics-view" class="row">
 
         </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="./assets/javascript/app.js"></script>
     </div>

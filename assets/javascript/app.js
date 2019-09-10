@@ -1,5 +1,5 @@
 var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
-            var topics = ["turtles", "beaches", "suntanning", "margarita", "shopping", "cats", "swimming", "flowers", "camping", "hugs"];
+            var topics = ["turtles", "beaches", "cats", "margarita", "shopping", "cats", "swimming", "flirty", "rihanna", "puppies"];
             // displayTopicInfo function re-renders the HTML to display the appropriate content
             function displayTopicInfo() {
                 var topic = $(this).attr("data-name");
@@ -14,7 +14,7 @@ var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
                         console.log(response)
                         // Creating a div to hold the topic
                         var topicDiv = $("<div>");
-                        topicDiv.addClass("col-md-3 img-responsive");
+                        topicDiv.addClass("col-md-4 img-responsive");
                         // Storing the rating data
                         var rating = response.data[j].rating;
                         console.log(rating)
@@ -23,12 +23,20 @@ var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
                         // Displaying the rating
                         topicDiv.append(pOne);
                         // Retrieving the URL for the image
-                        var imgURL = response.data[j].images.downsized_still.url;
+
+                        // var imgURL = response.data[j].images.downsized_still.url;
+                        var imgURL = response.data[j].images.fixed_width_still.url;
+                        
                         // Creating an element to hold the image
                         var image = $("<img>").attr("src", imgURL);
                         image.addClass("img-responsive topic");
-                        image.attr("data-still", response.data[j].images.downsized_still.url);
-                        image.attr("data-animate",response.data[j].images.downsized.url);
+
+                        // image.attr("data-still", response.data[j].images.downsized_still.url);
+                        image.attr("data-still", response.data[j].images.fixed_width_still.url);
+
+                        // image.attr("data-animate",response.data[j].images.downsized.url);
+                        image.attr("data-animate",response.data[j].images.fixed_width.url);
+
                         image.attr("data-state","still")
                         // Appending the image
                         topicDiv.append(image);
@@ -43,7 +51,7 @@ var APIKey = "TYdFsSj1Cf8l9pxOplfF9HNdWiN03wpo";
                 // (this is necessary otherwise you will have repeat buttons)
                 $("#buttons-view").empty();
                 // Looping through the array of topics
-                for (var i = 0; i < topics.length; i++) {
+                for (var i = 1; i < topics.length; i++) {
                     // Then dynamicaly generating buttons for each topic in the array
                     // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
                     var a = $("<button>");
